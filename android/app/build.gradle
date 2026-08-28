@@ -1,0 +1,14 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.taskflow.ai'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.taskflow.ai'
+        minSdk 23
+        targetSdk 35
+        versionCode 7
+        versionName '6.0'
+    }
+}

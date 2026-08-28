@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1220"><meta name="color-scheme" content="light"><meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icons/icon-192.png">
+<title>TaskFlow AI</title><link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="top"><div><div class="brand">TaskFlow <span>AI</span></div><div class="sub">Your intelligent task manager</div></div><button id="installBtn" class="install hidden">Install</button></header>
+<main>
+<section id="home" class="screen active">
+  <div class="greeting"><div class="eyebrow" id="todayLabel"></div><h1>What needs to get done?</h1><p>Tell TaskFlow naturally. AI can organize the details.</p></div>
+  <div class="ai-box">
+    <textarea id="aiInput" rows="3" placeholder="✨ Try: Call Raj tomorrow at 5 PM, high priority"></textarea>
+    <div class="ai-actions"><button id="voiceBtn" class="round" title="Voice input">🎤</button><button id="aiCreate" class="ai-btn">✨ Create with AI</button></div>
+  </div>
+  <div id="aiPreview" class="preview hidden"><div class="preview-head"><b>AI understood</b><button id="cancelPreview">×</button></div><div id="previewContent"></div><button id="confirmAI" class="primary full">Create task</button></div>
+  <div class="quick"><button id="quickAdd">＋ Quick task</button><button data-nav="tasks">📋 All tasks</button><button data-nav="ai">✨ AI assistant</button></div>
+  <div class="section-head"><h2>Today</h2><span id="todayCountSmall"></span></div><div id="todayList" class="task-list"></div>
+  <div class="section-head"><h2>Overdue</h2><span id="overdueSmall"></span></div><div id="overdueList" class="task-list"></div>
+</section>
+
+<section id="tasks" class="screen">
+ <div class="section-head"><h2>Tasks</h2><button id="addTaskBtn" class="primary">＋ Add</button></div>
+ <div class="filters"><input id="search" placeholder="Search tasks…"><select id="statusFilter"><option value="all">All status</option><option value="pending">Pending</option><option value="completed">Completed</option></select><select id="priorityFilter"><option value="all">All priority</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select></div>
+ <div id="taskList" class="task-list"></div>
+</section>
+
+<section id="ai" class="screen">
+ <div class="section-head"><h2>✨ AI Assistant</h2></div>
+ <div class="card"><p class="muted">Ask about your tasks. The assistant can summarize your day and suggest priorities.</p>
+ <div id="aiChat" class="chat"><div class="bubble bot">Hi! Ask me things like “What should I do today?” or “Show my overdue tasks.”</div></div>
+ <div class="chat-input"><input id="aiAsk" placeholder="Ask about my tasks…"><button id="askBtn" class="primary">Send</button></div></div>
+</section>
+
+<section id="settings" class="screen">
+ <h2>Settings</h2>
+ <div class="card"><h3>Google Sheets</h3><label>Apps Script Web App URL<input id="apiUrl" placeholder="https://script.google.com/macros/s/.../exec"></label><button id="saveSettings" class="primary full">Save settings</button><p id="syncStatus" class="muted">Not configured</p><button id="syncBtn" class="secondary full">Sync now</button></div>
+ <div class="card"><h3>AI connection</h3><p class="muted">For security, do not put a private AI API key directly in this PWA. Use a server-side endpoint when you connect a real AI provider.</p><label>AI endpoint (optional)<input id="aiUrl" placeholder="Your secure AI endpoint"></label><button id="saveAI" class="secondary full">Save AI endpoint</button></div>
+ <div class="card"><h3>App</h3><p>Offline tasks are stored on this device. Google Sheets is used for backup/sync.</p></div>
+</section>
+</main>
+<button id="fab" class="fab">＋</button>
+<nav class="bottom"><button data-nav="home" class="active">🏠<span>Home</span></button><button data-nav="tasks">📋<span>Tasks</span></button><button data-nav="ai">✨<span>AI</span></button><button data-nav="settings">⚙️<span>Settings</span></button></nav>
+
+<dialog id="taskDialog"><form id="taskForm"><div class="modal-head"><h2 id="dialogTitle">Add Task</h2><button type="button" id="closeDialog" class="close">×</button></div>
+<input type="hidden" id="taskId"><label>Task<input id="taskTitle" required maxlength="120"></label><label>Description<textarea id="description" rows="3"></textarea></label>
+<div class="grid2"><label>Priority<select id="priority"><option value="high">High</option><option value="medium" selected>Medium</option><option value="low">Low</option></select></label><label>Category<input id="category" placeholder="Work"></label></div>
+<div class="grid2"><label>Due date<input id="dueDate" type="date"></label><label>Due time<input id="dueTime" type="time"></label></div>
+<div class="grid2"><label>Recurring<select id="recurring"><option value="">None</option><option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly">Monthly</option></select></label><label>Reminder<select id="reminder"><option value="">None</option><option value="at_time">At due time</option><option value="10m">10 minutes before</option><option value="30m">30 minutes before</option><option value="1h">1 hour before</option></select></label></div>
+<button type="submit" class="primary full">Save task</button></form></dialog>
+<script src="./app.js"></script>
+</body></html>

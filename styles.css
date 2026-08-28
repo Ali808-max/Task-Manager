@@ -1,0 +1,61 @@
+*{box-sizing:border-box}body{margin:0;background:#f6f7fb;color:#0f172a;font-family:Inter,system-ui,-apple-system,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.top{position:sticky;top:0;z-index:5;background:#0f172a;color:white;padding:16px 18px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:22px;font-weight:850}.brand span{color:#60a5fa}.sub{font-size:11px;color:#94a3b8;margin-top:2px}.install{background:#2563eb;color:#fff;border:0;border-radius:10px;padding:9px 12px;font-weight:700}.hidden{display:none!important}main{max-width:760px;margin:auto;padding:20px 16px 100px}.screen{display:none}.screen.active{display:block}.greeting{padding:8px 2px 18px}.eyebrow{font-size:12px;color:#64748b;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.greeting h1{font-size:30px;line-height:1.05;margin:7px 0}.greeting p,.muted{color:#64748b;font-size:13px}.ai-box{background:linear-gradient(135deg,#111827,#1e3a8a);padding:16px;border-radius:22px;box-shadow:0 12px 30px #0f172a20}.ai-box textarea{width:100%;border:0;outline:0;background:#ffffff12;color:white;resize:none;border-radius:14px;padding:14px}.ai-box textarea::placeholder{color:#cbd5e1}.ai-actions{display:flex;justify-content:space-between;align-items:center;margin-top:12px}.round{width:44px;height:44px;border-radius:50%;background:#ffffff18;color:#fff;border:1px solid #ffffff22}.ai-btn{background:#fff;color:#1d4ed8;border:0;border-radius:12px;padding:11px 15px;font-weight:800}.quick{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:14px 0}.quick button{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:11px;font-size:12px;font-weight:700}.section-head{display:flex;justify-content:space-between;align-items:center;margin:20px 0 10px}.section-head h2{font-size:18px;margin:0}.section-head span{font-size:12px;color:#64748b}.task-list{display:grid;gap:9px}.task{background:#fff;border:1px solid #e2e8f0;border-left:5px solid #94a3b8;border-radius:14px;padding:13px}.task.high{border-left-color:#ef4444}.task.medium{border-left-color:#f59e0b}.task.low{border-left-color:#22c55e}.task.done{opacity:.55}.task-row{display:flex;gap:10px;align-items:flex-start}.check{width:23px;height:23px;border:2px solid #cbd5e1;border-radius:50%;background:white;flex:none}.done .check{background:#22c55e;border-color:#22c55e}.task-title{font-weight:800}.done .task-title{text-decoration:line-through}.meta{font-size:12px;color:#64748b;margin-top:5px}.task-actions{margin-left:auto;display:flex}.task-actions button{border:0;background:none;padding:4px}.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}.filters input{grid-column:1/-1}.filters input,.filters select,.card input,.card textarea,.card select{width:100%;padding:11px;border:1px solid #dbe2ea;border-radius:10px;background:#fff}.primary,.secondary{border:0;border-radius:11px;padding:11px 15px;font-weight:800}.primary{background:#2563eb;color:#fff}.secondary{background:#e2e8f0;color:#0f172a}.full{width:100%}.card,.preview{background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:15px;margin:12px 0}.card h3{margin-top:0}.card label{font-size:13px;font-weight:700;display:block;margin:10px 0}.preview{box-shadow:0 8px 24px #00000012}.preview-head{display:flex;justify-content:space-between;margin-bottom:8px}.preview table{width:100%;border-collapse:collapse;margin-bottom:12px}.preview td{padding:5px 0;font-size:13px;border-bottom:1px solid #f1f5f9}.preview td:first-child{color:#64748b;width:35%}.chat{min-height:160px;display:grid;gap:8px;margin:12px 0}.bubble{padding:10px 12px;border-radius:13px;max-width:90%;font-size:13px}.bubble.bot{background:#eff6ff}.bubble.user{background:#e2e8f0;margin-left:auto}.chat-input{display:flex;gap:7px}.chat-input input{flex:1}.fab{position:fixed;right:20px;bottom:76px;width:54px;height:54px;border-radius:50%;background:#2563eb;color:#fff;border:0;font-size:25px;box-shadow:0 10px 25px #0003;z-index:8}.bottom{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e2e8f0;display:flex;justify-content:center;gap:12px;padding:8px;z-index:10}.bottom button{border:0;background:none;color:#64748b;min-width:65px;padding:5px;border-radius:10px}.bottom button.active{background:#eff6ff;color:#2563eb}.bottom span{display:block;font-size:10px;margin-top:2px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.modal-head{display:flex;justify-content:space-between;align-items:center}.close{background:none;border:0;font-size:28px}dialog{border:0;border-radius:20px;width:min(92%,520px);padding:0;box-shadow:0 20px 70px #0004}dialog::backdrop{background:#0008}dialog form{padding:20px}@media(max-width:480px){.quick{grid-template-columns:1fr}.greeting h1{font-size:27px}}
+/* V3.1 modal/form fix */
+dialog{max-height:90vh;overflow:auto}
+dialog form{display:block}
+dialog form label{display:block;font-size:13px;font-weight:700;margin:12px 0;color:#334155}
+dialog form input,dialog form textarea,dialog form select{display:block;width:100%;margin-top:6px;padding:12px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;color:#0f172a;outline:none}
+dialog form input:focus,dialog form textarea:focus,dialog form select:focus{border-color:#2563eb;box-shadow:0 0 0 3px #2563eb18}
+dialog form textarea{resize:vertical;min-height:90px}
+dialog .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+dialog .primary{margin-top:10px}
+.ai-box .round{font-size:19px;display:grid;place-items:center}
+@media(max-width:560px){
+  dialog{width:94%;margin:auto;border-radius:18px}
+  dialog form{padding:16px}
+  dialog .grid2{grid-template-columns:1fr}
+}
+html {
+  background: #0f172a;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.top {
+  padding-top: calc(20px + env(safe-area-inset-top));
+}
+.fab-group {
+  position: fixed;
+  right: 18px;
+  bottom: 85px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 20;
+}
+
+.fab-group .fab {
+  position: static;
+}
+
+.mic-fab {
+  width: 52px;
+  height: 52px;
+  font-size: 22px;
+  background: #ffffff;
+  color: #1f2937;
+  border: 1px solid #dbe2ea;
+  box-shadow: 0 4px 14px rgba(0,0,0,.15);
+}
+
+.mic-fab:active {
+  transform: scale(.95);
+}
+
+/* ============================================================
+   TaskFlow V4
+   ============================================================ */
+.calendar-head{display:flex;align-items:center;justify-content:space-between;margin:8px 0 12px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:8px 12px}.calendar-head button{border:0;background:none;font-size:28px;padding:2px 12px}.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:14px}.cal-name{text-align:center;font-size:11px;color:#64748b;font-weight:800;padding:4px}.cal-day{min-height:54px;border:1px solid #e2e8f0;border-radius:10px;background:#fff;padding:7px;text-align:left;display:flex;flex-direction:column;justify-content:space-between}.cal-day span{font-size:10px;color:#2563eb;font-weight:800}.cal-day.today-day{outline:2px solid #2563eb}.cal-day.muted-day{opacity:.4}.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}.stat{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:14px;text-align:center}.stat b{display:block;font-size:24px}.stat span{font-size:11px;color:#64748b}.reminder-options{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:6px}.reminder-options label{font-weight:600!important;margin:0!important;background:#f8fafc;padding:8px;border-radius:8px}.reminder-options input{width:auto!important;display:inline!important;margin:0 5px 0 0!important}.dark-mode{background:#0b1220;color:#e5e7eb}.dark-mode .top{background:#020617}.dark-mode .card,.dark-mode .task,.dark-mode .calendar-head,.dark-mode .cal-day,.dark-mode .stat,.dark-mode .bottom,.dark-mode dialog,.dark-mode .preview,.dark-mode .quick button,.dark-mode .filters input,.dark-mode .filters select{background:#111827;color:#e5e7eb;border-color:#334155}.dark-mode .meta,.dark-mode .muted,.dark-mode .eyebrow,.dark-mode .cal-name{color:#94a3b8}.dark-mode .reminder-options label{background:#1f2937}.dark-mode .calendar-head button,.dark-mode .cal-day{color:#e5e7eb}.dark-mode .task-title{color:#f8fafc}.dark-mode dialog form input,.dark-mode dialog form textarea,.dark-mode dialog form select{background:#0f172a;color:#e5e7eb;border-color:#334155}.dark-mode .bottom button{color:#94a3b8}.dark-mode .bottom button.active{background:#172554;color:#60a5fa}
+@media(max-width:600px){.stats-grid{grid-template-columns:1fr 1fr}.cal-day{min-height:48px;padding:5px;font-size:12px}.bottom{gap:2px;overflow-x:auto;justify-content:flex-start}.bottom button{min-width:58px}.reminder-options{grid-template-columns:1fr}}

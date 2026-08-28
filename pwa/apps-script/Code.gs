@@ -1,0 +1,11 @@
+// Keep using your currently working Apps Script deployment.
+// This file is included for reference/redeployment. The PWA's Google Sheets sync format is unchanged.
+const SHEET_NAME='Tasks';
+const HEADERS=['Task ID','Task','Description','Priority','Due Date','Due Time','Category','Status','Created','Completed'];
+function doGet(){return json({ok:true,service:'TaskFlow AI API'})}
+function doPost(e){try{const b=JSON.parse(e.postData.contents||'{}');if(b.action!=='sync')return json({ok:false,error:'Unknown action'});const incoming=Array.isArray(b.tasks)?b.tasks:[],sh=getSheet_();ensureHeaders_(sh),vals=sh.getDataRange().getValues(),byId={};vals.slice(1).forEach((r,i)=>{if(r[0])byId[String(r[0])]=i+2});incoming.forEach(t=>{const row=[t.id||Utilities.getUuid(),t.title||'',t.description||'',t.priority||'medium',t.dueDate||'',t.dueTime||'',t.category||'',t.status||'pending',t.createdAt||new Date().toISOString(),t.completedAt||''];const n=byId[String(row[0])];if(n)sh.getRange(n,1,1,HEADERS.length).setValues([row]);else sh.appendRow(row)});const final=sh.getDataRange().getValues().slice(1);return json({ok:true,tasks:final.filter(r=>r[0]).map(r=>({id:String(r[0]),title:String(r[1]||''),description:String(r[2]||''),priority:String(r[3]||'medium'),dueDate:fmtDate(r[4]),dueTime:fmtTime(r[5]),category:String(r[6]||''),status:String(r[7]||'pending'),createdAt:String(r[8]||''),completedAt:String(r[9]||''),recurring:'',reminder:''}))})}catch(err){return json({ok:false,error:String(err)})}}
+function getSheet_(){const ss=SpreadsheetApp.getActiveSpreadsheet();let sh=ss.getSheetByName(SHEET_NAME);if(!sh)sh=ss.insertSheet(SHEET_NAME);return sh}
+function ensureHeaders_(sh){if(sh.getLastRow()===0)sh.appendRow(HEADERS);else sh.getRange(1,1,1,HEADERS.length).setValues([HEADERS])}
+function fmtDate(v){if(!v)return '';if(Object.prototype.toString.call(v)==='[object Date]'&&!isNaN(v))return Utilities.formatDate(v,Session.getScriptTimeZone(),'yyyy-MM-dd');return String(v)}
+function fmtTime(v){if(!v)return '';if(Object.prototype.toString.call(v)==='[object Date]'&&!isNaN(v))return Utilities.formatDate(v,Session.getScriptTimeZone(),'HH:mm');return String(v)}
+function json(o){return ContentService.createTextOutput(JSON.stringify(o)).setMimeType(ContentService.MimeType.JSON)}
